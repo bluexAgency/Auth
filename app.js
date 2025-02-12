@@ -11,12 +11,13 @@ import "./models/UserRoles.js"
 
 // rutas  //
 import userRouter from "./routes/userRoutes.js";
-
+import roleRouter from "./routes/roleRoutes.js";
 
 const app = express()
 
 app.use(express.json())
 app.use('/api/users',userRouter)
+app.use('/api/roles',roleRouter)
 
 export default app
 
