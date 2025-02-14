@@ -12,12 +12,14 @@ import "./models/UserRoles.js"
 // rutas  //
 import userRouter from "./routes/userRoutes.js";
 import roleRouter from "./routes/roleRoutes.js";
+import permissionRouter from "./routes/permissionRoutes.js";
 
 const app = express()
 
 app.use(express.json())
 app.use('/api/users',userRouter)
 app.use('/api/roles',roleRouter)
+app.use('/api/permission',permissionRouter)
 
 export default app
 
