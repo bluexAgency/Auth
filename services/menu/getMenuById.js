@@ -1,11 +1,11 @@
 import Menu from "../../models/Menu.js";
 
-const getAllMenu = async()=>{
+const getMenuById=async(id)=>{
     try {
-        return await Menu.findAll()
+        return await Menu.findByPk(id)
     } catch (error) {
         console.log(error)
     }
 }
 
-export default getAllMenu
+export default getMenuById
