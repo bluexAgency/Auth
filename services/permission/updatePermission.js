@@ -7,6 +7,14 @@ const updatePermission = async(id,permiData)=>{
         await permission.update(permiData)
     } catch (error) {
         console.log(error);
+
+        // Manejar el error de violación de restricción única
+        if (error.name === 'SequelizeUniqueConstraintError') {
+          throw new Error('El nombre del Permiso ya está en uso');
+        }
+    
+        // Relanzar otros errores
+        throw error;
     }
 }
 
