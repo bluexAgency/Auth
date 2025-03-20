@@ -10,6 +10,7 @@ const Rol = dbSchema.define('Roles', {
     name_rol: {
         type: DataTypes.STRING(50),
         allowNull: false,
+        unique: true
     },
     description: {
         type: DataTypes.STRING(255),

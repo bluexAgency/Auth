@@ -1,21 +1,13 @@
 import { check } from "express-validator";
-import validateResult from "../helpers/validateHelper.js";
-import User from "../models/User.js"; // Asegúrate de importar tu modelo de usuario
+import validateResult from "../../helpers/validateHelper.js";
 
-// Validador personalizado para verificar si el username ya existe
-const checkUsernameExists = async (username) => {
-  const user = await User.findOne({ where: { username } }); // Busca el usuario en la base de datos
-  if (user) {
-    throw new Error('El nombre de usuario ya está en uso');
-  }
-};
-
+// Validador para crear un usuario
 const validateCreate = [
   // Validación para el campo 'username'
   check('username')
     .exists().withMessage('El nombre de usuario es requerido') // Verifica que el campo exista
-    .not().isEmpty().withMessage('El nombre de usuario no puede estar vacío') // Verifica que no esté vacío
-    .custom(checkUsernameExists), // Valida que el username no exista en la base de datos
+    .not().isEmpty().withMessage('El nombre de usuario no puede estar vacío') ,// Verifica que no esté vacío
+    
 
   // Validación para el campo 'password'
   check('password')

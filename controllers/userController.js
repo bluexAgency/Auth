@@ -38,6 +38,7 @@ class UserController{
 
     async updateUser(req, res){
         try {
+            console.log('sfsgddshgdg')
             const updateUser = await update(req.params.id, req.body);
             if(!updateUser) return res.status(404).json({error:'usuario no encontrado'})
             res.json(updateUser)
@@ -45,6 +46,8 @@ class UserController{
             res.status(400).json({error:error.message})  
         }
     }
+
+
     async deleteuser(req, res){
         try {
             await deleteuser(req.params.id)

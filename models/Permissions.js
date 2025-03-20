@@ -10,6 +10,7 @@ const Permiso = dbSchema.define('Permissions', {
     name_permissions: {
         type: DataTypes.STRING(50),
         allowNull: false,
+        unique: true
     },
     description: {
         type: DataTypes.STRING(255),
